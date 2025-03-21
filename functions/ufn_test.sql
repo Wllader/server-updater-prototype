@@ -1,12 +1,7 @@
-CREATE FUNCTION GetFullName (@EmployeeID INT)
-RETURNS NVARCHAR(255)
+CREATE FUNCTION dbo.TestFunction()
+RETURNS INT
 AS
 BEGIN
-    DECLARE @FullName NVARCHAR(255);
-    
-    SELECT @FullName = FirstName + ' ' + LastName
-    FROM Employees
-    WHERE EmployeeID = @EmployeeID;
-    
-    RETURN @FullName;
+    RETURN 42;
 END;
+GO
