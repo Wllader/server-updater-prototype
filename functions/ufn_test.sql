@@ -1,7 +1,0 @@
-CREATE FUNCTION dbo.TestFunction()
-RETURNS INT
-AS
-BEGIN
-    RETURN 42;
-END;
-GO
