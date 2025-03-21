@@ -1,10 +1,6 @@
-CREATE PROCEDURE GetEmployeesByDepartment
-    @DepartmentID INT
+CREATE PROCEDURE dbo.TestProcedure
 AS
 BEGIN
-    SET NOCOUNT ON;
-    
-    SELECT EmployeeID, FirstName, LastName, DepartmentID
-    FROM Employees
-    WHERE DepartmentID = @DepartmentID;
+    SELECT 'Test procedure executed';
 END;
+GO
