@@ -15,9 +15,12 @@ jobs:
       - name: Install SQL Server Tools & SqlPackage
         run: |
           sudo apt-get update
+          sudo apt-get install -y curl apt-transport-https
+          curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+          sudo add-apt-repository "$(curl -s https://packages.microsoft.com/config/ubuntu/20.04/prod.list)"
+          sudo apt-get update
           sudo apt-get install -y mssql-tools unixodbc-dev
-          wget -qO- https://aka.ms/sqlpackage-linux | tar xz
-          echo 'export PATH="$PATH:$PWD"' >> ~/.bashrc
+          echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
           source ~/.bashrc
 
       - name: Deploy Schema Changes to MSSQL Server
